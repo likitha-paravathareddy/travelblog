@@ -66,7 +66,7 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
-                <li><a href="##" id="click">
+                <li><a href="#" id="click">
                     <i class="uil uil-user"></i>
                     <span class="link-name">Users</span>
                 </a></li>
@@ -85,7 +85,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="home2.html">
+                <li><a href="index.html">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -107,10 +107,14 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
             
             <img src="profile.jpeg" alt="">
         </div>
-
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
@@ -132,7 +136,7 @@
                     <div class="box box3">
                         <i class="uil uil-estate"></i>
                         <span class="text">Number of places</span>
-                        <span class="number">2</span>
+                        <span class="number" id="place">0</span>
                     </div>
                 </div>
             </div>
@@ -142,17 +146,18 @@
             <div id="users">
                 <div class="container">
                     <table>
-                        <th style="background-color:darkgrey;padding:12px;">Id</th>
+                        <th style="background-color:darkgrey;padding:12px;">Name</th>
+                        <th style="background-color:darkgrey;padding:12px;">Password</th>
                         <th style="background-color:darkgrey;padding:12px">E-Mail</th>
-                        <th style="background-color:darkgrey;padding:12px">First Name</th>
-                        <th style="background-color:darkgrey;padding:12px">Last Name</th>
+                        <th style="background-color:darkgrey;padding:12px">Phone Number</th>
+                        <th style="background-color:darkgrey;padding:12px">Adress</th>
                         <tbody id="usertab">
     
                         </tbody>
     
                     </table>
                 </div>
-                <button id="addus" class="btn btn-primary" onclick="postUser()">Add User</button>
+
             </div>
             <div id="users1">
                 <div class="container">
@@ -204,12 +209,13 @@
             
         </div>
     </section>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <script src="users.js"></script>
     <script src="queries.js"></script>
     <script src="places.js"></script>
     <script src="admin.js"></script>
+    <script src="projects.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -222,27 +228,42 @@
         }
         function fun()
         {
+            
             document.getElementById("users").style.display="inline";
+            document.getElementById("users1").style.display="none";
+            document.getElementById("users2").style.display="none";
+            document.getElementById("users3").style.display="none";
         }
         document.getElementById("click1").onclick=function(){
             fun1();
         }
         function fun1()
         {
+            
+            document.getElementById("users").style.display="none";
             document.getElementById("users1").style.display="inline";
+            document.getElementById("users2").style.display="none";
+            document.getElementById("users3").style.display="none";
         }
         document.getElementById("click2").onclick=function(){
             fun2();
         }
         function fun2()
         {
+            
+            document.getElementById("users").style.display="none";
+            document.getElementById("users1").style.display="none";
             document.getElementById("users2").style.display="inline";
+            document.getElementById("users3").style.display="none";
         }
         document.getElementById("click3").onclick=function(){
             fun3();
         }
         function fun3()
         {
+            document.getElementById("users").style.display="none";
+            document.getElementById("users1").style.display="none";
+            document.getElementById("users2").style.display="none";
             document.getElementById("users3").style.display="inline";
         }
     </script>

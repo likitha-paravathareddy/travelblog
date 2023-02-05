@@ -93,82 +93,123 @@ const persons=[]
 //login part
 
 
-const submit=document.getElementById('submit')
-submit.addEventListener("click",()=>{
-    const mailId=document.getElementById("typeEmailX").value
+//const submit=document.getElementById('submit')
+$(document).ready(function(){
+    $("#submit").click(function(){
+        const mailId=$("#typeEmailX").val();
+        const passwd=$("#typePasswordX").val();
+        if (mailId=="reddylikitha201@gmail.com"){
+            if (passwd=="12345")
+            {
+                localStorage.setItem("currentLoggedUser",mailId);
+                window.open("index.html");
+            }
+        }
+        data1={
+            mail:mailId,
+            passwd:passwd
+        }
+        data1=JSON.stringify(data1)
+        //alert(data1)
+        var url = 'http://127.0.0.1:3002/login';
+        $.ajaxSetup({ 
+           headers: {
+           'Content-Type': 'application/json',
+           'Accept': 'application/json'
+        }
+        });
+        $.post(url,data1,function(xhr,status,responseText){
+            console.log(responseText.responseText);
+           if(responseText.responseText=="1")
+           {
+            localStorage.setItem("currentLoggedUser",mailId);
+            window.open("index.html");
+           }
+           else if(responseText.responseText=="0")
+           {
+            alert("Invalid username or password");
+           }   
+        });
+        // $.get(url,function(data,status){
+        //     console.log(data);
+        // });
+        // const obj=JSON.parse(localStorage.getItem(mailId));
+        // if(obj==null){
+        //     alert("invalid login");
+        // }
+        // if(obj.mail===mailId){
+
+        //     if(obj.password===passwd){
+        //         console.log("valid")
+        //         obj.islogged=true;
+        //         localStorage.setItem(mailId,JSON.stringify(obj))
+        //         window.open("home1.html")
+        //     }
+        //     else{
+        //         alert("invalid username or password");
+        //         // document.getElementById("typeEmailX").place
+        
+        //     }
+        // }
+        // else{
+        //     alert("Invalid login");
+        // }
+        
+    });
+});
+// submit.addEventListener("click",()=>{
+//     const mailId=document.getElementById("typeEmailX").value
 
 
-const passwd=document.getElementById("typePasswordX").value
-console.log(mailId)
-console.log(passwd)
-console.log("button clicked")
-console.log(mailId)
-if (mailId=="reddylikitha201@gmail.com"){
-    if (passwd=="12345")
-    {
-        window.open("home2.html")
-    }
-}
-const obj=JSON.parse(localStorage.getItem(mailId))
-//const obj=person
-if(obj==null){
-    document.getElementById("typeEmailX").value=""
-    document.getElementById("typePasswordX").value=""
-    document.getElementById("typeEmailX").placeholder="invalid"
-    document.getElementById("typePasswordX").placeholder="invalid"
-}
-console.log(obj)
-if(obj.mail===mailId){
+// const passwd=document.getElementById("typePasswordX").value
+// console.log(mailId)
+// console.log(passwd)
+// console.log("button clicked")
+// console.log(mailId)
+// if (mailId=="reddylikitha201@gmail.com"){
+//     if (passwd=="12345")
+//     {
+//         window.open("home2.html")
+//     }
+// }
+// const obj=JSON.parse(localStorage.getItem(mailId))
+// if(obj==null){
+//     document.getElementById("typeEmailX").value=""
+//     document.getElementById("typePasswordX").value=""
+//     document.getElementById("typeEmailX").placeholder="invalid"
+//     document.getElementById("typePasswordX").placeholder="invalid"
+// }
+// console.log(obj)
+// if(obj.mail===mailId){
 
-   // const user=JSON.parse(obj)
-    if(obj.password===passwd){
-        console.log("valid")
-        //document.getElementById('form').style.display='none'
-        obj.islogged=true;
-        localStorage.setItem(mailId,JSON.stringify(obj))
-        window.open("home1.html")
+//     if(obj.password===passwd){
+//         console.log("valid")
+//         obj.islogged=true;
+//         localStorage.setItem(mailId,JSON.stringify(obj))
+//         window.open("home1.html")
+//     }
+//     else{
+//         document.getElementById("typeEmailX").value=""
+//         document.getElementById("typeEmailX").placeholder="invalid"
+//         document.getElementById("typePasswordX").value=""
+//         document.getElementById("typePasswordX").placeholder="invalid"
 
-       // localStorage[mailId].setItem(JSON.stringify(obj))
-        //document.getElementById('profile').style.display=''
-        //document.getElementById("logout").style.display=''
+//         // document.getElementById("typeEmailX").place
 
-        //const logout=document.getElementById("logout")
-        // logout.addEventListener("click",()=>{
-        //     logout.style.display='none'
-        //     obj.islogged=false;
-        //     document.getElementById("profile").style.display='none'
-        //     document.getElementById('options').style.display=''
-        //     document.getElementById('greeting').innerHTML='Welcome to <strong>Tempo</strong>'
+//     }
+// }
+// else{
+//     document.getElementById("typeEmailX").value=""
+//     document.getElementById("typePasswordX").value=""
+//     document.getElementById("typeEmailX").placeholder="invalid"
+//     document.getElementById("typePasswordX").placeholder="invalid"
 
-
-       // })
-
-        //document.getElementById('greeting').innerHTML="hello"
-
-       // document.getElementById('greeting').style.display='flex'
-    }
-    else{
-        document.getElementById("typeEmailX").value=""
-        document.getElementById("typeEmailX").placeholder="invalid"
-        document.getElementById("typePasswordX").value=""
-        document.getElementById("typePasswordX").placeholder="invalid"
-
-        // document.getElementById("typeEmailX").place
-
-    }
-}
-else{
-    document.getElementById("typeEmailX").value=""
-    document.getElementById("typePasswordX").value=""
-    document.getElementById("typeEmailX").placeholder="invalid"
-    document.getElementById("typePasswordX").placeholder="invalid"
-
-    // document.getElementById("typeEmailX").place
+//     // document.getElementById("typeEmailX").place
 
 
-}
+// }
 
-})
+// })
 
 
 

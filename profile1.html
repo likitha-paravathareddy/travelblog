@@ -20,21 +20,14 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 </head>
-
-
-
-
-
-
-
-<body>
+<body>  
     <section style="background-color: #eee;">
         <div class="container py-5">
           <div class="row">
             <div class="col">
               <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                 <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="home1.html">Home</a></li>
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
               </nav>
@@ -45,16 +38,11 @@
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="assets/img/girl.jpeg" alt="avatar"
+                  <img id="img" src="assets/img/girl.jpeg" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3" id="heading">John Smith</h5>
-                  <div class="d-flex justify-content-center mb-2">
-                   <a href="#"><button type="button" class="btn btn-primary" id="edit">Edit Profile</button></a>
-                  </div>
-                </div>
-              </div>
-            <div class="card mb-4 mb-lg-0">
-                <div class="card-body p-0">
+                  <h5 class="my-3" id="heading">User</h5>
+                   <a href="#"><button style="display:inline;" type="button" class="btn btn-primary" id="edit">Edit Profile</button></a>
+                    <a href="#"><button style="display:inline;" type="button" class="btn btn-primary" id="save">Save Profile</button></a>                                                           
                 </div>
               </div>
             </div>
@@ -72,7 +60,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0" >User Name</p>
+                      <p class="mb-0" >Mobile Number</p>
                     </div>
                     <div class="col-sm-9">
                       <input class="text-muted mb-0" id="username"/>
@@ -99,6 +87,7 @@
                 </div>
               </div>
       </section>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
       <script src="assets/js/profile.js"></script>
       <script src="assets/js/profile1.js"></script>
 
